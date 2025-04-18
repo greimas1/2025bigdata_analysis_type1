@@ -1,0 +1,11 @@
+library(dplyr)
+titanic<-read.csv("P210302.csv")
+#str(titanic)
+#summary(titanic)
+colSums(is.na(titanic))
+nrow(titanic)
+cs<-colSums(is.na(titanic))/nrow(titanic)
+cs
+cs<-data.frame(cs)
+ds<-cs%>%arrange(desc(cs))
+print(rownames(ds)[1])
