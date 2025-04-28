@@ -1,0 +1,8 @@
+library(dplyr)
+rdata <- read.csv("P210203.csv")
+#str(rdata)
+upper <- mean(rdata$charges)+1.5*sd(rdata$charges)
+lower <- mean(rdata$charges)-1.5*sd(rdata$charges)
+#data <- rdata %>% filter(rdata$charges>=upper & rdata$charges<=lower)
+data <- rdata %>% filter(rdata$charges<= lower | rdata$charges>=upper) 
+print(as.integer(sum(data$charges)))
