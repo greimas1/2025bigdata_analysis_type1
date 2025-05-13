@@ -1,0 +1,17 @@
+library(dplyr)
+rdata <- read.csv("P210302.csv")
+#str(rdata)
+#is.na(rdata)
+#colnames(is.na(rdata))
+summary(rdata)
+colSums(is.na(rdata))
+count <- colSums(is.na(rdata))/nrow(rdata)
+#typeof(count)
+#str(count)
+count <- as.data.frame(count)
+#print(count)
+#Age
+
+data <- count %>% arrange(desc(count))
+print(rownames(data)[1])
+#rownames(data[1])
